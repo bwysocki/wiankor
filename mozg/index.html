@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Wiankor - mózg robota</title>
+    <script>window.$ = window.jQuery = require('jquery');</script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-info">Rób wianek</button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default">Silnik</button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default">Ramie Nitka</button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default">Lewe Tył</button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default">Lew Przód</button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default">Prawe Tył</button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default">Prawe Przód</button>
+      </div>
+    </div>
+
+    <div class="alert alert-success hidden" id="success" role="alert">...</div>
+    <div class="alert alert-danger hidden" id="fail" role="alert">...</div>
+
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+        <h1 class="panel-title">
+          Silnik - 192.168.55.169
+        </h1>
+      </div>
+      <div class="panel-body">
+
+        <form>
+          <div class="form-group">
+            <label for="nrOfCycles">Liczba obrotów</label>
+            <input type="number" class="form-control" id="nrOfCycles" value="10">
+          </div>
+          <button type="submit" class="btn btn-default" id="motorSend">Wyślij</button>
+        </form>
+
+      </div>
+   </div>
+
+
+
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+  </body>
+</html>
