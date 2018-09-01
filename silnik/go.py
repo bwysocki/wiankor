@@ -15,4 +15,4 @@ response = sqs.receive_message(
     WaitTimeSeconds=20
 )
 
-print(response)
+print(response['Messages'][0]['Body'])
