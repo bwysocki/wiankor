@@ -1,7 +1,7 @@
 import boto3
 
 # Create SQS client
-sqs = boto3.client('sqs')
+sqs = boto3.client('sqs', region_name='eu-central-1')
 queue_url = 'https://sqs.eu-central-1.amazonaws.com/719069272797/wiankor-silnik'
 
 # Long poll for message on provided SQS queue
