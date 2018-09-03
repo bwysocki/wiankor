@@ -1,5 +1,6 @@
 import boto3
 import os
+import sys
 
 # Create SQS client
 sqs = boto3.client('sqs', region_name='eu-central-1', aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'], aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'])
