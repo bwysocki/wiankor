@@ -27,5 +27,9 @@ try:
             ReceiptHandle=receipt_handle
         )
         print(message['Body'])
+    else:
+        print("No message on the queue")
+except:
+    print "Unexpected error:", sys.exc_info()[0]
 finally:
-  print("Czyszczenie")
+  print("Finishing...")
