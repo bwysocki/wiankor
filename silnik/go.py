@@ -17,13 +17,15 @@ try:
         WaitTimeSeconds=20
     )
     print(response)
-    message = response['Messages'][0]
-    receipt_handle = message['ReceiptHandle']
 
-    sqs.delete_message(
-        QueueUrl=queue_url,
-        ReceiptHandle=receipt_handle
-    )
-    print(message['Body'])
+    if ('Messages' in response):
+        message = response['Messages'][0]
+        receipt_handle = message['ReceiptHandle']
+
+        sqs.delete_message(
+            QueueUrl=queue_url,
+            ReceiptHandle=receipt_handle
+        )
+        print(message['Body'])
 finally:
   print("Czyszczenie")
