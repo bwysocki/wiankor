@@ -16,7 +16,6 @@ try:
         ],
         WaitTimeSeconds=20
     )
-    print(response)
 
     if ('Messages' in response):
         message = response['Messages'][0]
@@ -26,7 +25,8 @@ try:
             QueueUrl=queue_url,
             ReceiptHandle=receipt_handle
         )
-        print(message['Body'])
+        nrOfCycles = message['Body'].split("=")[1].strip()
+        print(nrOfCycles)
     else:
         print("No message on the queue")
 except:
