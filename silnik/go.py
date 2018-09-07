@@ -40,30 +40,31 @@ def cycle():
     time.sleep(1)
     stop()
 
-while True:
-    # Long poll for message on provided SQS queue
-    response = sqs.receive_message(
-        QueueUrl=queue_url,
-        MaxNumberOfMessages=1,
-        MessageAttributeNames=[
-            'All'
-        ],
-        WaitTimeSeconds=20
-    )
-
-    if ('Messages' in response):
-        message = response['Messages'][0]
-        receipt_handle = message['ReceiptHandle']
-
-        sqs.delete_message(
+try:
+    while True:
+        # Long poll for message on provided SQS queue
+        response = sqs.receive_message(
             QueueUrl=queue_url,
-            ReceiptHandle=receipt_handle
+            MaxNumberOfMessages=1,
+            MessageAttributeNames=[
+                'All'
+            ],
+            WaitTimeSeconds=20
         )
-        nrOfCycles = message['Body'].split("=")[1].strip()
-        print(nrOfCycles)
-    else:
-        print("No message on the queue")
+
+        if ('Messages' in response):
+            message = response['Messages'][0]
+            receipt_handle = message['ReceiptHandle']
+
+            sqs.delete_message(
+                QueueUrl=queue_url,
+                ReceiptHandle=receipt_handle
+            )
+            nrOfCycles = message['Body'].split("=")[1].strip()
+            print(nrOfCycles)
+        else:
+            print("No message on the queue")
 except:
     print "Unexpected error:", sys.exc_info()[0]
 finally:
-  print("Finishing...")
+    print("Finishing...")
