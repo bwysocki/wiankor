@@ -60,6 +60,7 @@ try:
                 QueueUrl=queue_url,
                 ReceiptHandle=receipt_handle
             )
+            cycle()
             nrOfCycles = message['Body'].split("=")[1].strip()
             print(nrOfCycles)
         else:
