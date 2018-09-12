@@ -36,7 +36,9 @@ def stop():
     motor_pwm.ChangeDutyCycle(0)
 
 def cycle():
-    forward(30)
+    forward(100)
+    time.sleep(0.5)
+    forward(50)
     time.sleep(1)
     stop()
 
