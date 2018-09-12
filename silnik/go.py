@@ -37,9 +37,9 @@ def stop():
 
 def cycle():
     forward(100)
-    time.sleep(0.5)
-    forward(50)
-    time.sleep(1)
+    time.sleep(0.2)
+    forward(30)
+    time.sleep(3)
     stop()
 
 try:
