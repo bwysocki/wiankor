@@ -35,11 +35,11 @@ def stop():
     GPIO.output(in_2_pin, False)
     motor_pwm.ChangeDutyCycle(0)
 
-def cycle():
-    forward(60)
-    time.sleep(0.1)
-    forward(20)
-    time.sleep(3)
+def cycle(startPower, timeStartPower, power, timePower):
+    forward(int(float(startPower)))
+    time.sleep(float(timeStartPower))
+    forward(int(float(power)))
+    time.sleep(float(timePower))
     stop()
 
 try:
@@ -62,9 +62,13 @@ try:
                 QueueUrl=queue_url,
                 ReceiptHandle=receipt_handle
             )
-            cycle()
-            nrOfCycles = message['Body'].split("=")[1].strip()
-            print(nrOfCycles)
+            messageValues = message['Body'].split(";")
+            startPower = messageValues[0].split("=")[1].strip()
+            timeStartPower = messageValues[1].split("=")[1].strip()
+            power = messageValues[2].split("=")[1].strip()
+            timePower = messageValues[3].split("=")[1].strip()
+            print(startPower, timeStartPower, power, timePower)
+            cycle(startPower, timeStartPower, power, timePower)
         else:
             print("No message on the queue")
 except:

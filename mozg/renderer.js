@@ -13,9 +13,12 @@ var fail = $("#fail");
 var sqs = new AWS.SQS({apiVersion: '2012-11-05'});
 
 function sendNrOfCycles(queue) {
-  var nrOfCycles = $("#nrOfCycles").val();
+  var startPower = $("#startPower").val();
+  var timeStartPower = $("#timeStartPower").val();
+  var power = $("#power").val();
+  var timePower = $("#timePower").val();
   var params = {
-   MessageBody: "nrOfCycles="+nrOfCycles,
+   MessageBody: "startPower="+startPower+";timeStartPower="+timeStartPower+";power="+power+";timePower="+timePower,
    QueueUrl: queue
   };
   sqs.sendMessage(params, function(err, data) {

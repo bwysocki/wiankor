@@ -52,8 +52,20 @@
 
         <form>
           <div class="form-group">
-            <label for="nrOfCycles">Liczba obrotów</label>
-            <input type="number" class="form-control" id="nrOfCycles" value="10">
+            <label for="nrOfCycles">Siła początkowa</label>
+            <input type="number" class="form-control" id="startPower" value="60">
+          </div>
+          <div class="form-group">
+            <label for="nrOfCycles">Czas siły początkowej</label>
+            <input type="number" class="form-control" id="timeStartPower" value="0.1">
+          </div>
+          <div class="form-group">
+            <label for="nrOfCycles">Siła</label>
+            <input type="number" class="form-control" id="power" value="20">
+          </div>
+          <div class="form-group">
+            <label for="nrOfCycles">Czas siły</label>
+            <input type="number" class="form-control" id="timePower" value="3">
           </div>
           <button type="submit" class="btn btn-default" id="motorSend">Wyślij</button>
         </form>
